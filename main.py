@@ -15,7 +15,7 @@ def main():
     intervals_api = api.IntervalsApi(config['intervals']['api_key'], config['intervals']['athlete_id'])
 
     synchronizer = sync.Synchronizer(finalsurge_api, intervals_api)
-    synchronizer.sync_hrv()
+    synchronizer.sync_values([sync.SyncValueType.HRV, sync.SyncValueType.RHR, sync.SyncValueType.WEIGHT])
 
 def get_config():
     with open(CONFIG_FILENAME, 'r') as file:

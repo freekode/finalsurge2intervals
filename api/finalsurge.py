@@ -34,8 +34,11 @@ class FinalSurgeApi:
             raise Exception('cannot login')
         self.logged_in = True
 
-    def get_daily_vitals(self):
-        resp = self.session.get(f'{HOST}/DailyVitals.cshtml')
+    def get_wellness(self, past_days=30):
+        post_data = {
+            'PastDays': past_days
+        }
+        resp = self.session.post(f'{HOST}/DailyVitals.cshtml', headers=FORM_HEADERS, data=post_data)
         soup = BeautifulSoup(resp.text, 'html.parser')
         table = soup.find(class_ = "table table-striped table-condensed")
         table_header = [cell.text for cell in table('tr')[0]('th')]
