@@ -4,4 +4,4 @@ intervals:
 finalsurge:
   username: email
   password: password
-  past_days: 30
+sync_past_days: 30
