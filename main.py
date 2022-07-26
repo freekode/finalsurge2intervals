@@ -9,7 +9,7 @@ CONFIG_FILENAME = 'config.yaml'
 
 def main():
     config = get_config()
-    finalsurge_api = api.FinalSurgeApi(config['finalsurge']['username'], config['finalsurge']['password'])
+    finalsurge_api = api.FinalSurgeApi(config['finalsurge']['username'], config['finalsurge']['password'], config['finalsurge']['sync_past_days'])
     finalsurge_api.login()
 
     intervals_api = api.IntervalsApi(config['intervals']['api_key'], config['intervals']['athlete_id'])

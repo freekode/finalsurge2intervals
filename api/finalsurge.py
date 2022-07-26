@@ -34,7 +34,7 @@ class FinalSurgeApi:
             raise Exception('cannot login')
         self.logged_in = True
 
-    def get_wellness(self, past_days=30):
+    def get_wellness(self, past_days):
         post_data = {
             'PastDays': past_days
         }

@@ -4,3 +4,4 @@ intervals:
 finalsurge:
   username: email
   password: password
+  past_days: 30

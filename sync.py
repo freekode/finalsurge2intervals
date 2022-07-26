@@ -9,12 +9,13 @@ class SyncValueType(enum.Enum):
     WEIGHT = ['Weight', 'weight']
 
 class Synchronizer:
-    def __init__(self, finalsurge_api: api.FinalSurgeApi, intervals_api: api.IntervalsApi):
+    def __init__(self, finalsurge_api: api.FinalSurgeApi, intervals_api: api.IntervalsApi, sync_past_days):
         self.finalsurge_api = finalsurge_api
         self.intervals_api = intervals_api
+        self.sync_past_days = sync_past_days
 
     def sync_values(self, value_types_to_sync):
-        fs_wellness = self.finalsurge_api.get_wellness()
+        fs_wellness = self.finalsurge_api.get_wellness(self.sync_past_days)
         for fs_day in fs_wellness:
             date = fs_day['Date']
             in_day = self.intervals_api.get_wellness(date)
