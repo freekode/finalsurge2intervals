@@ -10,6 +10,7 @@ beautifulsoup4 = "^4.11.1"
 requests = "^2.28.1"
 python-dateutil = "^2.8.2"
 PyYAML = "^6.0"
+intervalsicu = "^0.1.4"
 
 [tool.poetry.dev-dependencies]
 
